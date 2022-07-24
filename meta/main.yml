@@ -1,0 +1,10 @@
+galaxy_info:
+  role_name: opensc
+  author: staf wagemakers <staf@wagemakers.be>
+  description: An ansible role to set up opensc
+  license: license (BSD, MIT)
+  min_ansible_version: 2.4
+  galaxy_tags:
+    - system
+    - security
+dependencies: []

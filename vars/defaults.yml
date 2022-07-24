@@ -1,0 +1,4 @@
+opensc_packages:
+  - opensc
+  - ccid
+opensc_service: pcscd 
