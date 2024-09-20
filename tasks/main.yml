@@ -1,23 +1,22 @@
 ---
 # tasks file for opensc
 
-- name: set OS related variables
-  include_vars: '{{ item }}'
+- name: Set OS related variables
+  ansible.builtin.include_vars: "{{ item }}"
   with_first_found:
-    - '{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml'
-    - '{{ ansible_distribution }}.yml'
-    - '{{ ansible_os_family }}.yml'
-    - '{{ ansible_os_family | replace ("/","_") | replace(" ","_") }}.yml'
+    - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+    - "{{ ansible_distribution }}.yml"
+    - "{{ ansible_os_family }}.yml"
     - defaults.yml
 
-- name: install the required packages
-  package:
-    name: '{{ item }}'
+- name: Install the required packages
+  ansible.builtin.package:
+    name: "{{ item }}"
     state: latest
   with_items: "{{ opensc_packages }}"
 
-- name: enable opensc service
-  service:
-    name: '{{ opensc_service }}'
+- name: Enable opensc service
+  ansible.builtin.service:
+    name: "{{ opensc_service }}"
     state: started
     enabled: yes
