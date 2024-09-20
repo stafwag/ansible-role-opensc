@@ -12,11 +12,11 @@
 - name: Install the required packages
   ansible.builtin.package:
     name: "{{ item }}"
-    state: latest
+    state: present
   with_items: "{{ opensc_packages }}"
 
 - name: Enable opensc service
   ansible.builtin.service:
     name: "{{ opensc_service }}"
     state: started
-    enabled: yes
+    enabled: true
